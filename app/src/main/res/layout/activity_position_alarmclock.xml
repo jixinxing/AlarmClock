@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/position_base_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/clock_main_bg" >
+
+    <ListView
+        android:id="@+id/position_alarms_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/adddsaddsaclock" />
+
+    <RelativeLayout
+        android:id="@+id/position_alarm_add_layout"
+        android:layout_width="match_parent"
+        android:layout_height="74sp"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/v5_bottom_bar_bg_light" >
+
+        <ImageView
+            android:id="@+id/position_add_clock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/clockadd" />
+
+        
+                <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8sp"
+            android:background="@mipmap/v5_bottom_bar_new_icon_normal_light" />
+                
+                
+                
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="11sp"
+            android:layout_marginBottom="4sp"
+            android:text="添加闹铃" />
+    </RelativeLayout>
+
+</RelativeLayout>

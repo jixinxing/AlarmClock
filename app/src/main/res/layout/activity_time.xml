@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/clock_main_bg" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomtimes" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/default_clock_dial" />
+
+        <ImageView
+            android:id="@+id/default_clock_hourtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/default_clock_hour" />
+
+        <ImageView
+            android:id="@+id/default_clock_minutetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/default_clock_minute" />
+
+        <ImageView
+            android:id="@+id/default_clock_secondtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/default_clock_second" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomtimes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:background="@mipmap/v5_bottom_bar_bg_light" >
+
+            <TextView
+                android:id="@+id/londomtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30sp"
+                android:text="09:05"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/fghfhdfhfhdfhd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/londomtime"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:src="@mipmap/item_inner_divider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/fghfhdfhfhdfhd"
+                android:text="伦敦"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15sp"
+                android:background="@mipmap/ic_menu_desk_clock" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:background="@mipmap/v5_bottom_bar_bg_light" >
+
+            <TextView
+                android:id="@+id/newyorktime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30sp"
+                android:text="09:05"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/fsaffdsfswwww"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/newyorktime"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:src="@mipmap/item_inner_divider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/fsaffdsfswwww"
+                android:text="纽约"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15sp"
+                android:background="@mipmap/ic_menu_desk_clock" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="74sp"
+            android:background="@mipmap/v5_bottom_bar_bg_light" >
+
+            <Button
+                android:id="@+id/xiugaisystemtime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:background="@drawable/startback"
+                android:text="修改系统时间" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

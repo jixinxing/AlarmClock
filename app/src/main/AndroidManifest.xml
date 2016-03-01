@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="cn.just.alarmclock"
+android:versionCode="1"
+android:versionName="1.0" >
+
+<uses-sdk
+    android:minSdkVersion="7"
+    android:targetSdkVersion="19" />
+
+<application
+    android:allowBackup="true"
+    android:icon="@mipmap/comandroiddeskclock"
+    android:label="@string/app_name"
+    android:theme="@style/AppTheme" >
+    <meta-data
+        android:name="com.baidu.lbsapi.API_KEY"
+        android:value="GTjBkxkGSoeBPnK8mvT9F98Z" />
+
+    <provider
+        android:name="cn.just.alarmclock.db.AlarmProvider"
+        android:authorities="com.cn.daming.deskclock"
+        android:exported="false" />
+
+    <activity
+        android:name="cn.just.alarmclock.activity.MainActivityWithViewPager"
+        android:label="@string/app_name" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name="cn.just.alarmclock.activity.AlarmClockActivity" >
+    </activity>
+    <activity
+        android:name="cn.just.alarmclock.activity.AddAlarmClockActivity"
+        android:configChanges="orientation|keyboardHidden|keyboard|navigation"
+        android:label="@string/set_alarm" >
+    </activity>
+    <activity android:name="cn.just.alarmclock.activity.PositionAlarmClockActivity" >
+    </activity>
+    <activity
+        android:name="cn.just.alarmclock.activity.AddPositionAlarmClockActivity"
+        android:configChanges="orientation|keyboardHidden|keyboard|navigation"
+        android:label="@string/set_alarm" >
+    </activity>
+    <activity
+        android:name="cn.just.alarmclock.activity.LocationBaiduMapActivity"
+        android:configChanges="orientation|keyboardHidden"
+        android:screenOrientation="portrait" >
+    </activity>
+    <activity android:name="cn.just.alarmclock.activity.IntelligenceAlarmClockActivity" >
+    </activity>
+    <activity android:name="cn.just.alarmclock.activity.AddIntelligenceAlarmClockActivity" >
+    </activity>
+    <activity android:name="cn.just.alarmclock.activity.StopwatchActivity" >
+    </activity>
+    <activity android:name="cn.just.alarmclock.activity.CountdownActivity" >
+    </activity>
+    <activity android:name="cn.just.alarmclock.activity.TimeActivity" >
+    </activity>
+    <activity
+        android:name="cn.just.alarmclock.activity.SettingsActivity"
+        android:excludeFromRecents="true"
+        android:label="@string/settings"
+        android:taskAffinity="" >
+    </activity>
+    <activity
+        android:name="cn.just.alarmclock.activity.AlarmAlertFullScreen"
+        android:configChanges="orientation|keyboardHidden|keyboard|navigation"
+        android:excludeFromRecents="true"
+        android:launchMode="singleInstance"
+        android:taskAffinity=""
+        android:theme="@android:style/Theme.Wallpaper.NoTitleBar" />
+
+    <receiver android:name="cn.just.alarmclock.broadcast.AlarmReceiver" >
+        <intent-filter>
+            <action android:name="com.cn.daming.deskclock.ALARM_ALERT" />
+            <action android:name="alarm_killed" />
+            <action android:name="cancel_snooze" />
+        </intent-filter>
+    </receiver>
+
+    <receiver android:name="cn.just.alarmclock.broadcast.PositionAlarmReceiver"
+        android:process=":remote">
+    </receiver>
+
+    <activity
+        android:name="cn.just.alarmclock.activity.AlarmAlert"
+        android:configChanges="orientation|keyboardHidden|keyboard|navigation"
+        android:excludeFromRecents="true"
+        android:launchMode="singleInstance"
+        android:taskAffinity=""
+        android:theme="@style/alarm_alert" />
+    <activity
+        android:name="cn.just.alarmclock.activity.HandleSetAlarm"
+        android:excludeFromRecents="true"
+        android:permission="com.android.alarm.permission.SET_ALARM"
+        android:theme="@android:style/Theme.NoDisplay" >
+        <intent-filter>
+            <action android:name="android.intent.action.SET_ALARM" />
+        </intent-filter>
+    </activity>
+
+    <service
+        android:name="cn.just.alarmclock.service.AlarmKlaxon"
+        android:description="@string/alarm_klaxon_service_desc" >
+        <intent-filter>
+            <action android:name="com.cn.daming.deskclock.ALARM_ALERT" />
+        </intent-filter>
+    </service>
+
+    <receiver android:name="cn.just.alarmclock.broadcast.AlarmInitReceiver" >
+        <intent-filter>
+
+            <!-- 监听开机 -->
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+            <!-- 监听时间、日期的变化 -->
+            <action android:name="android.intent.action.TIME_SET" />
+            <!-- 监听时区变化 -->
+            <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            <!-- 监听locale的变化 -->
+            <action android:name="android.intent.action.LOCALE_CHANGED" />
+        </intent-filter>
+    </receiver>
+
+    <service
+        android:name="com.baidu.location.f"
+        android:enabled="true"
+        android:process=":remote" >
+        <intent-filter>
+            <action android:name="com.baidu.location.service_v3.1" >
+            </action>
+        </intent-filter>
+    </service>
+</application>
+
+<permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+</permission>
+
+<uses-permission android:name="android.permission.WAKE_LOCK" >
+</uses-permission>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<!-- 电源管理类PowerManager   AlarmAlertWakeLock.java -->
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.VIBRATE" />
+<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+<uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
+
+<uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+</uses-permission>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+</uses-permission>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+</uses-permission>
+<uses-permission android:name="android.permission.INTERNET" >
+</uses-permission>
+
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+</uses-permission>
+<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+<uses-permission android:name="android.permission.WAKE_LOCK" >
+</uses-permission>
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.ACCESS_GPS" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.READ_CONTACTS" />
+<uses-permission android:name="android.permission.CALL_PHONE" />
+<uses-permission android:name="android.permission.READ_SMS" />
+<uses-permission android:name="android.permission.SEND_SMS" />
+<!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+<uses-permission android:name="android.permission.GET_TASKS" />
+<uses-permission android:name="android.permission.CAMERA" >
+</uses-permission>
+<uses-permission android:name="android.permission.RECORD_AUDIO" >
+</uses-permission>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+</uses-permission>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.BROADCAST_STICKY" />
+<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+<!-- 来电消音 -->
+<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" >
+</uses-permission>
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+<uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+</uses-permission>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+</uses-permission>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+</uses-permission>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+</uses-permission>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+</uses-permission>
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+</uses-permission>
+<uses-permission android:name="android.permission.READ_PHONE_STATE" >
+</uses-permission>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+</uses-permission>
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+</uses-permission>
+<uses-permission android:name="android.permission.READ_LOGS" >
+</uses-permission>
+
+</manifest>
