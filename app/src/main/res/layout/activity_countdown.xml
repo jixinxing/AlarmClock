@@ -164,7 +164,7 @@
             <cn.just.alarmclock.util.SlipButton
                 android:id="@+id/ringtixing"
                 android:layout_width="80sp"
-                android:layout_height="27sp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true" />
         </RelativeLayout>
@@ -186,7 +186,7 @@
             <cn.just.alarmclock.util.SlipButton
                 android:id="@+id/scroonlisht"
                 android:layout_width="80sp"
-                android:layout_height="27sp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true" />
         </RelativeLayout>

@@ -27,11 +27,11 @@
             android:src="@drawable/clockadd" />
 
         
-                <ImageView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8sp"
+            android:layout_marginTop="0sp"
             android:background="@mipmap/v5_bottom_bar_new_icon_normal_light" />
                 
                 
