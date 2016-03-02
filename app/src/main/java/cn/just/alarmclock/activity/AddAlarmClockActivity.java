@@ -35,6 +35,7 @@ public class AddAlarmClockActivity extends PreferenceActivity implements
 
 	private EditTextPreference mLabel;
 	private CheckBoxPreference mEnabledPref;
+
 	private Preference mTimePref;
 	private AlarmPreference mAlarmPref;
 	private CheckBoxPreference mVibratePref;
